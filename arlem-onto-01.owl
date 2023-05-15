@@ -1,0 +1,773 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://purl.org/arlem-onto#"
+     xml:base="https://purl.org/arlem-onto"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="https://purl.org/arlem-onto">
+        <dc:creator xml:lang="en">Alex Gabriel</dc:creator>
+        <dc:description xml:lang="en">An ontology that describes the ARLEM standard.</dc:description>
+        <dc:title xml:lang="en">ARLEM-Onto</dc:title>
+        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.1</owl:versionInfo>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/contributor -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/contributor"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/creator -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/creator"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/description -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/description"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/publisher -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/publisher"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/title -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/title"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://purl.org/arlem-onto#hasApps -->
+
+    <owl:ObjectProperty rdf:about="https://purl.org/arlem-onto#hasApps">
+        <rdfs:domain rdf:resource="https://purl.org/arlem-onto#workplace"/>
+        <rdfs:comment xml:lang="en">The apps container element holds definitions of how to interface the AR training system with other apps and widgets.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://purl.org/arlem-onto#hasAugmentation -->
+
+    <owl:ObjectProperty rdf:about="https://purl.org/arlem-onto#hasAugmentation">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://purl.org/arlem-onto#activate"/>
+                    <rdf:Description rdf:about="https://purl.org/arlem-onto#deactivate"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:comment xml:lang="en">Instruct the AR training system to play or display the augmentation with the target id provided (a predicate.id, primitive.id, or warning.id from the workplace model or an action.id from the activity model).</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://purl.org/arlem-onto#hasAugmentationType -->
+
+    <owl:ObjectProperty rdf:about="https://purl.org/arlem-onto#hasAugmentationType">
+        <rdfs:domain rdf:resource="https://purl.org/arlem-onto#activate"/>
+        <rdfs:range rdf:resource="https://purl.org/arlem-onto#augmentationType"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://purl.org/arlem-onto#hasDetectables -->
+
+    <owl:ObjectProperty rdf:about="https://purl.org/arlem-onto#hasDetectables">
+        <rdfs:domain rdf:resource="https://purl.org/arlem-onto#workplace"/>
+        <rdfs:comment xml:lang="en">Detectables are entities that link to fiducial markers, target feature models, or other sensor state properties providing input to the computer vision system.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://purl.org/arlem-onto#hasDevice -->
+
+    <owl:ObjectProperty rdf:about="https://purl.org/arlem-onto#hasDevice">
+        <rdfs:domain rdf:resource="https://purl.org/arlem-onto#action"/>
+        <rdfs:isDefinedBy xml:lang="en">Specify on which device to execute the action</rdfs:isDefinedBy>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://purl.org/arlem-onto#hasDevices -->
+
+    <owl:ObjectProperty rdf:about="https://purl.org/arlem-onto#hasDevices">
+        <rdfs:domain rdf:resource="https://purl.org/arlem-onto#workplace"/>
+        <rdfs:comment xml:lang="en">Devices are the AR hardware delivery systems that the AR training system may communicate with to render the learning experience for the user.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://purl.org/arlem-onto#hasEnter -->
+
+    <owl:ObjectProperty rdf:about="https://purl.org/arlem-onto#hasEnter">
+        <rdfs:comment xml:lang="en">Container for augmentations that will be activated or deactivated, and which messages and validation rules will be executed, once the action step is launched</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://purl.org/arlem-onto#hasExit -->
+
+    <owl:ObjectProperty rdf:about="https://purl.org/arlem-onto#hasExit">
+        <rdfs:comment xml:lang="en">Container for augmentations which will be activated or deactivated, and which messages and validation rules will be executed, once the action step is exited</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://purl.org/arlem-onto#hasLaunch -->
+
+    <owl:ObjectProperty rdf:about="https://purl.org/arlem-onto#hasLaunch">
+        <rdfs:domain rdf:resource="https://purl.org/arlem-onto#message"/>
+        <rdfs:comment xml:lang="en">Specify which action shall be launched on the recipient device 
+The AR training system shall publish launch ids to other devices or sensors on the MQTT topic target + “/” + id.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://purl.org/arlem-onto#hasLocation -->
+
+    <owl:ObjectProperty rdf:about="https://purl.org/arlem-onto#hasLocation">
+        <rdfs:domain rdf:resource="https://purl.org/arlem-onto#action"/>
+        <rdfs:isDefinedBy xml:lang="en">Refer to a particular place where the action happens</rdfs:isDefinedBy>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://purl.org/arlem-onto#hasPersons -->
+
+    <owl:ObjectProperty rdf:about="https://purl.org/arlem-onto#hasPersons">
+        <rdfs:domain rdf:resource="https://purl.org/arlem-onto#workplace"/>
+        <rdfs:comment xml:lang="en">Persons refer to the people in the workplace with whom the user may interact</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://purl.org/arlem-onto#hasPlaces -->
+
+    <owl:ObjectProperty rdf:about="https://purl.org/arlem-onto#hasPlaces">
+        <rdfs:domain rdf:resource="https://purl.org/arlem-onto#workplace"/>
+        <rdfs:comment xml:lang="en">Places are tangibles. They refer to locations within the workplace.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://purl.org/arlem-onto#hasPoi -->
+
+    <owl:ObjectProperty rdf:about="https://purl.org/arlem-onto#hasPoi">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://purl.org/arlem-onto#activate"/>
+                    <rdf:Description rdf:about="https://purl.org/arlem-onto#deactivate"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:comment xml:lang="en">Specify the point of interest (poi) from where to remove the augmentation</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://purl.org/arlem-onto#hasPredicate -->
+
+    <owl:ObjectProperty rdf:about="https://purl.org/arlem-onto#hasPredicate">
+        <rdfs:domain rdf:resource="https://purl.org/arlem-onto#action"/>
+        <rdfs:comment xml:lang="en">The action may specify what verb to log user interaction with via the xAPI.
+When no predicate is provided, logging shall use the standard xAPI verb “launched” for each action step.
+If xAPI is supported by the AR training system, then any predicate id used shall correspond to the id of the resultant xAPI verb statement definition.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://purl.org/arlem-onto#hasPredicates -->
+
+    <owl:ObjectProperty rdf:about="https://purl.org/arlem-onto#hasPredicates">
+        <rdfs:domain rdf:resource="https://purl.org/arlem-onto#workplace"/>
+        <rdfs:comment xml:lang="en">Predicates are reusable instructional augmentations, configuring a specific augmentation primitive for its use in activities.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://purl.org/arlem-onto#hasPrimitives -->
+
+    <owl:ObjectProperty rdf:about="https://purl.org/arlem-onto#hasPrimitives">
+        <rdfs:domain rdf:resource="https://purl.org/arlem-onto#workplace"/>
+        <rdfs:comment xml:lang="en">Augmentation primitives define the fundamental types of annotations available in the AR training system
+NOTE—The workplace model informs the AR training system, which of the primitives are supported in this workplace. Moreover, for each augmentation primitive, the workplace model defines default size and/or volume level.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://purl.org/arlem-onto#hasSensors -->
+
+    <owl:ObjectProperty rdf:about="https://purl.org/arlem-onto#hasSensors">
+        <rdfs:domain rdf:resource="https://purl.org/arlem-onto#workplace"/>
+        <rdfs:comment xml:lang="en">Sensors are hardware devices that detect or measure physical characteristics and communicates the data generated digitally.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://purl.org/arlem-onto#hasTarget -->
+
+    <owl:ObjectProperty rdf:about="https://purl.org/arlem-onto#hasTarget">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://purl.org/arlem-onto#activate"/>
+                    <rdf:Description rdf:about="https://purl.org/arlem-onto#deactivate"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://purl.org/arlem-onto#hasThings -->
+
+    <owl:ObjectProperty rdf:about="https://purl.org/arlem-onto#hasThings">
+        <rdfs:domain rdf:resource="https://purl.org/arlem-onto#workplace"/>
+        <rdfs:comment xml:lang="en">The container object holds an array of definitions of the physical workplace objects such as tools, machines, furniture, or materials</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://purl.org/arlem-onto#hasTrigger -->
+
+    <owl:ObjectProperty rdf:about="https://purl.org/arlem-onto#hasTrigger">
+        <rdfs:domain rdf:resource="https://purl.org/arlem-onto#if"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://purl.org/arlem-onto#hasType -->
+
+    <owl:ObjectProperty rdf:about="https://purl.org/arlem-onto#hasType">
+        <rdfs:domain rdf:resource="https://purl.org/arlem-onto#action"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://purl.org/arlem-onto#hasViewport -->
+
+    <owl:ObjectProperty rdf:about="https://purl.org/arlem-onto#hasViewport">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://purl.org/arlem-onto#action"/>
+                    <rdf:Description rdf:about="https://purl.org/arlem-onto#activate"/>
+                    <rdf:Description rdf:about="https://purl.org/arlem-onto#deactivate"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="https://purl.org/arlem-onto#viewport"/>
+        <rdfs:isDefinedBy xml:lang="en">The visual area in which any instruction contained in the action displayed.</rdfs:isDefinedBy>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://purl.org/arlem-onto#hasWarnings -->
+
+    <owl:ObjectProperty rdf:about="https://purl.org/arlem-onto#hasWarnings">
+        <rdfs:domain rdf:resource="https://purl.org/arlem-onto#workplace"/>
+        <rdfs:comment xml:lang="en">Definition of the supported warnings and instructions
+NOTE—The AR system shall support all warnings listed in ISO 7010.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://purl.org/arlem-onto#hasWorkplace -->
+
+    <owl:ObjectProperty rdf:about="https://purl.org/arlem-onto#hasWorkplace">
+        <rdfs:domain rdf:resource="https://purl.org/arlem-onto#activity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://purl.org/arlem-onto#startWith -->
+
+    <owl:ObjectProperty rdf:about="https://purl.org/arlem-onto#startWith">
+        <rdfs:domain rdf:resource="https://purl.org/arlem-onto#activity"/>
+        <rdfs:range rdf:resource="https://purl.org/arlem-onto#action"/>
+        <rdfs:isDefinedBy xml:lang="en">Reference to the action to start with</rdfs:isDefinedBy>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://purl.org/arlem-onto#hasAugmentationType -->
+
+    <owl:DatatypeProperty rdf:about="https://purl.org/arlem-onto#hasAugmentationType"/>
+    
+
+
+    <!-- https://purl.org/arlem-onto#hasDescription -->
+
+    <owl:DatatypeProperty rdf:about="https://purl.org/arlem-onto#hasDescription">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://purl.org/arlem-onto#activity"/>
+                    <rdf:Description rdf:about="https://purl.org/arlem-onto#instruction"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:isDefinedBy xml:lang="en">Human readable description of the activity</rdfs:isDefinedBy>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://purl.org/arlem-onto#hasInstructionDescription -->
+
+    <owl:DatatypeProperty rdf:about="https://purl.org/arlem-onto#hasInstructionDescription">
+        <rdfs:isDefinedBy xml:lang="en">More detailed instruction</rdfs:isDefinedBy>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://purl.org/arlem-onto#hasKey -->
+
+    <owl:DatatypeProperty rdf:about="https://purl.org/arlem-onto#hasKey">
+        <rdfs:domain rdf:resource="https://purl.org/arlem-onto#message"/>
+        <rdfs:comment xml:lang="en">Specify which variable key (MQTT “topic”) to use for broadcasting the message contents</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://purl.org/arlem-onto#hasLanguage -->
+
+    <owl:DatatypeProperty rdf:about="https://purl.org/arlem-onto#hasLanguage">
+        <rdfs:domain rdf:resource="https://purl.org/arlem-onto#activity"/>
+        <rdfs:isDefinedBy xml:lang="en">Specifies the language with which the activity expresses human-readable instructional prompts.</rdfs:isDefinedBy>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://purl.org/arlem-onto#hasName -->
+
+    <owl:DatatypeProperty rdf:about="https://purl.org/arlem-onto#hasName">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://purl.org/arlem-onto#activity"/>
+                    <rdf:Description rdf:about="https://purl.org/arlem-onto#workplace"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:isDefinedBy xml:lang="en">Human readable name of the activity or the workplace</rdfs:isDefinedBy>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://purl.org/arlem-onto#hasOrigin -->
+
+    <owl:DatatypeProperty rdf:about="https://purl.org/arlem-onto#hasOrigin">
+        <rdfs:domain rdf:resource="https://purl.org/arlem-onto#workplace"/>
+        <rdfs:comment xml:lang="en">The id of a detectable that marks the world origin for the work place
+All positions of all other detectables of type “anchor” shall be expressed relative to this world origin, so that this single detectable may be used to sync x-, y-, and z-coordinate offsets across devices and platforms.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://purl.org/arlem-onto#hasTarget -->
+
+    <owl:DatatypeProperty rdf:about="https://purl.org/arlem-onto#hasTarget"/>
+    
+
+
+    <!-- https://purl.org/arlem-onto#hasText -->
+
+    <owl:DatatypeProperty rdf:about="https://purl.org/arlem-onto#hasText">
+        <rdfs:domain rdf:resource="https://purl.org/arlem-onto#message"/>
+        <rdfs:comment xml:lang="en">The message content as human readable text is included as the text node of message element</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://purl.org/arlem-onto#hasTitle -->
+
+    <owl:DatatypeProperty rdf:about="https://purl.org/arlem-onto#hasTitle">
+        <rdfs:domain rdf:resource="https://purl.org/arlem-onto#instruction"/>
+        <rdfs:isDefinedBy xml:lang="en">the headline of the instruction</rdfs:isDefinedBy>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://purl.org/arlem-onto#hasType -->
+
+    <owl:DatatypeProperty rdf:about="https://purl.org/arlem-onto#hasType"/>
+    
+
+
+    <!-- https://purl.org/arlem-onto#hasUID -->
+
+    <owl:DatatypeProperty rdf:about="https://purl.org/arlem-onto#hasUID">
+        <rdfs:domain rdf:resource="https://purl.org/arlem-onto#workplace"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://purl.org/arlem-onto#removeSelf -->
+
+    <owl:DatatypeProperty rdf:about="https://purl.org/arlem-onto#removeSelf">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://purl.org/arlem-onto#enter"/>
+                    <rdf:Description rdf:about="https://purl.org/arlem-onto#exit"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:isDefinedBy xml:lang="en">If set to true, the action triggers the immediate execution of the exit loop once activate, deactivate, message, and if statements contained in this enter loop have been rendered. If not provided, default is assumed to be false</rdfs:isDefinedBy>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://purl.org/arlem-onto#action -->
+
+    <owl:Class rdf:about="https://purl.org/arlem-onto#action">
+        <rdfs:isDefinedBy xml:lang="en">Action elements describe the steps of the learning activity.</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/arlem-onto#activate -->
+
+    <owl:Class rdf:about="https://purl.org/arlem-onto#activate">
+        <rdfs:isDefinedBy xml:lang="en">Statement to execute effector output: load and display an augmentation to the user</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/arlem-onto#activity -->
+
+    <owl:Class rdf:about="https://purl.org/arlem-onto#activity">
+        <rdfs:isDefinedBy xml:lang="en">The activity contains a sequence of action steps, leading the user through the workflow needed to develop and demonstrate competence in the intended learning outcome.</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/arlem-onto#app -->
+
+    <owl:Class rdf:about="https://purl.org/arlem-onto#app">
+        <rdfs:comment xml:lang="en">Widget or app</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/arlem-onto#augmentationType -->
+
+    <owl:Class rdf:about="https://purl.org/arlem-onto#augmentationType">
+        <rdfs:comment xml:lang="en">augmentation type</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/arlem-onto#deactivate -->
+
+    <owl:Class rdf:about="https://purl.org/arlem-onto#deactivate">
+        <rdfs:comment xml:lang="en">Statement to remove augmentations</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/arlem-onto#detectable -->
+
+    <owl:Class rdf:about="https://purl.org/arlem-onto#detectable">
+        <rdfs:comment xml:lang="en">A detectable instructs the system how to recognize tangibles (things, places, or people).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/arlem-onto#device -->
+
+    <owl:Class rdf:about="https://purl.org/arlem-onto#device">
+        <rdfs:comment xml:lang="en">The hardware device that may be used to deliver activities or parts of activities created in this workplace.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/arlem-onto#enter -->
+
+    <owl:Class rdf:about="https://purl.org/arlem-onto#enter">
+        <rdfs:isDefinedBy xml:lang="en">Container for augmentations that will be activated or deactivated, and which messages and validation rules will be executed, once the action step is launched</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/arlem-onto#exit -->
+
+    <owl:Class rdf:about="https://purl.org/arlem-onto#exit">
+        <rdfs:isDefinedBy xml:lang="en">Container for augmentations which will be activated or deactivated, and which messages and validation rules will be executed, once the action step is exited</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/arlem-onto#if -->
+
+    <owl:Class rdf:about="https://purl.org/arlem-onto#if">
+        <rdfs:comment xml:lang="en">Specify a rule for validating user behavior and other characteristics with defined queries to determine branching of the flow of action</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/arlem-onto#instruction -->
+
+    <owl:Class rdf:about="https://purl.org/arlem-onto#instruction">
+        <rdfs:comment xml:lang="en">Human-readable directives and prompts for the learner for this particular action step</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/arlem-onto#message -->
+
+    <owl:Class rdf:about="https://purl.org/arlem-onto#message">
+        <rdfs:isDefinedBy xml:lang="en">Specify message statements to allow sending control commands and communication from device to device and user to user</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/arlem-onto#person -->
+
+    <owl:Class rdf:about="https://purl.org/arlem-onto#person">
+        <rdfs:comment xml:lang="en">A particular individual</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/arlem-onto#place -->
+
+    <owl:Class rdf:about="https://purl.org/arlem-onto#place">
+        <rdfs:comment xml:lang="en">A specific location in the workplace.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/arlem-onto#primitive -->
+
+    <owl:Class rdf:about="https://purl.org/arlem-onto#primitive"/>
+    
+
+
+    <!-- https://purl.org/arlem-onto#sensor -->
+
+    <owl:Class rdf:about="https://purl.org/arlem-onto#sensor">
+        <rdfs:comment xml:lang="en">For each sensor, the workplace model describes how to connect and what data streams to subscribe to.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/arlem-onto#thing -->
+
+    <owl:Class rdf:about="https://purl.org/arlem-onto#thing">
+        <rdfs:comment xml:lang="en">The container element holds the definition of a single physical workplace object.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/arlem-onto#trigger -->
+
+    <owl:Class rdf:about="https://purl.org/arlem-onto#trigger">
+        <rdfs:comment xml:lang="en">The trigger is enabled after the statements on the enter stack have been evaluated, starting the execution of the stack of exit statements when released</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/arlem-onto#viewport -->
+
+    <owl:Class rdf:about="https://purl.org/arlem-onto#viewport">
+        <rdfs:comment xml:lang="en">The visual area in which any instruction contained in the action displayed</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/arlem-onto#workplace -->
+
+    <owl:Class rdf:about="https://purl.org/arlem-onto#workplace">
+        <rdfs:comment xml:lang="en">The workplace element contains all information about a physical environment in which users learn by performing tasks with real and virtual objects.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/arlem-onto#workplaceElement -->
+
+    <owl:Class rdf:about="https://purl.org/arlem-onto#workplaceElement"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://purl.org/arlem-onto#actionAugmentation -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/arlem-onto#actionAugmentation">
+        <rdf:type rdf:resource="https://purl.org/arlem-onto#augmentationType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://purl.org/arlem-onto#actionType -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/arlem-onto#actionType">
+        <rdf:type rdf:resource="https://purl.org/arlem-onto#workplaceElement"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://purl.org/arlem-onto#actions -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/arlem-onto#actions">
+        <rdf:type rdf:resource="https://purl.org/arlem-onto#viewport"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://purl.org/arlem-onto#predicateAugmentation -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/arlem-onto#predicateAugmentation">
+        <rdf:type rdf:resource="https://purl.org/arlem-onto#augmentationType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://purl.org/arlem-onto#predicateType -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/arlem-onto#predicateType">
+        <rdf:type rdf:resource="https://purl.org/arlem-onto#workplaceElement"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://purl.org/arlem-onto#primitive -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/arlem-onto#primitive">
+        <rdf:type rdf:resource="https://purl.org/arlem-onto#workplaceElement"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://purl.org/arlem-onto#primitiveAugmentation -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/arlem-onto#primitiveAugmentation">
+        <rdf:type rdf:resource="https://purl.org/arlem-onto#augmentationType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://purl.org/arlem-onto#reactions -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/arlem-onto#reactions">
+        <rdf:type rdf:resource="https://purl.org/arlem-onto#viewport"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://purl.org/arlem-onto#warning -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/arlem-onto#warning">
+        <rdf:type rdf:resource="https://purl.org/arlem-onto#workplaceElement"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://purl.org/arlem-onto#warningAugmentation -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/arlem-onto#warningAugmentation">
+        <rdf:type rdf:resource="https://purl.org/arlem-onto#augmentationType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://purl.org/arlem-onto#warnings -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/arlem-onto#warnings">
+        <rdf:type rdf:resource="https://purl.org/arlem-onto#viewport"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="https://purl.org/arlem-onto#hasAugmentationType">
+        <rdfs:isDefinedBy xml:lang="en">Specify which augmentation type the id refers to.</rdfs:isDefinedBy>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://purl.org/arlem-onto#hasTarget">
+        <rdfs:comment xml:lang="en">Reference to unique identifier of a tangible in the workplace model.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://purl.org/arlem-onto#hasType">
+        <rdfs:isDefinedBy xml:lang="en">Specifies the category of the action and is used for styling visual appearance</rdfs:isDefinedBy>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://purl.org/arlem-onto#primitive">
+        <rdfs:comment xml:lang="en">Definition of a particular type of augmentation</rdfs:comment>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
